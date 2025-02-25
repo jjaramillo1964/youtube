@@ -9,9 +9,35 @@ import chromedriver_autoinstaller
 import undetected_chromedriver as uc
 from selenium.webdriver.common.keys import Keys
 
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.action_chains import ActionChains
+import chromedriver_autoinstaller
+from random import shuffle
+import os
+import json
+import undetected_chromedriver as uc
+from fake_useragent import UserAgent
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.common.keys import Keys
 # Auto-install ChromeDriver
 chromedriver_autoinstaller.install()
 
+def create_driver(user_agent):
+    options = webdriver.ChromeOptions()
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    ua = UserAgent()
+    options.add_argument(f"user-agent={ua.random}")
+    options.add_argument('--start-maximized')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--disable-gpu')
+    driver = uc.Chrome(options=options)
+    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+
+    return driver
 # Mouse movement simulation
 def random_mouse_move(driver):
     try:
@@ -27,16 +53,24 @@ def random_mouse_move(driver):
 
 # Main function
 def run_thread(keyword, email, password):
-    options = webdriver.ChromeOptions()
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument('--start-maximized')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--disable-gpu')
+    # options = webdriver.ChromeOptions()
+    # options.add_argument("--disable-blink-features=AutomationControlled")
+    # options.add_argument('--start-maximized')
+    # options.add_argument('--no-sandbox')
+    # options.add_argument('--disable-dev-shm-usage')
+    # options.add_argument('--disable-gpu')
 
-    driver = uc.Chrome(options=options)
-    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+    # driver = uc.Chrome(options=options)
+    # driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+    user_agents = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:89.0) Gecko/20100101 Firefox/89.0",
+    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:90.0) Gecko/20100101 Firefox/90.0",
+    ]
 
+    
+    user_agent = random.choice(user_agents)
+    driver = create_driver(user_agent)
     # YouTube login
     driver.get("https://www.youtube.com/")
     time.sleep(2)
