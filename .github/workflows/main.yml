@@ -1,0 +1,59 @@
+name: My Selenium 2
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'  # Chạy mỗi 3 giờ
+
+jobs:
+  youtube_bot:
+    continue-on-error: true
+    strategy:
+      matrix:
+            email: 
+              - 'nguyenthuhuonghpwr9uhh7501@rotitk.us'
+              - 'lemykieue93yotx2fj6f@rotitk.us'
+              - 'nguyenmongnhif74lkeeuz7dc@rotitk.us'
+              - 'mackimtuyenfbuyscf654ei@rotitk.us'
+              - 'nguyenbaolamrsf3t8fjfdih@dfphayy.us'
+
+              #1DAY
+              - 'duongbaotinqom3nqsusfs0@rotitk.us'
+              - 'tranbaohuynhay6v94ndq1u1@rotitk.us'
+              - 'lacthanhmaihozztj4te88d@rotitk.us'
+              - 'uathuyhoangejh1uph3trh1@rotitk.us'
+              - 'ngotuanngocozybfuvcohqw@rotitk.us'
+              - 'lacthanhmaihozztj4te88d@rotitk.us'
+              - 'dangminhdanqqsq1cy5p4lc@rotitk.us'
+              - 'huynhnamtu5dru7vzjsuxm@rotitk.us'
+              - 'ngohieuphong8mx04c4nyqu1@rotitk.us'
+              - 'phamthienanmyw9yn1bqbka@rotitk.us'
+              - 'tonghoangphat0t6efwjfjx3w@rotitk.us'
+       
+        #email: ['nguyenthuhuonghpwr9uhh7501@rotitk.us', 'lemykieue93yotx2fj6f@rotitk.us', 'nguyenmongnhif74lkeeuz7dc@rotitk.us','mackimtuyenfbuyscf654ei@rotitk.us','nguyenbaolamrsf3t8fjfdih@dfphayy.us'] 
+    runs-on: windows-latest  # Chạy trên hệ điều hành Windows
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install selenium chromedriver_autoinstaller undetected-chromedriver fake-useragent
+
+      - name: Run Selenium script
+        run: |
+          # Truyền email từ matrix vào Python script
+          python my_selenium2.py --email ${{ matrix.email }} --password ${{ secrets.PASSWORD }}
+
+      - name: Archive screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots-${{ matrix.email }}
+          path: screenshots/
