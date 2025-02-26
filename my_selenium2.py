@@ -114,7 +114,7 @@ def run_thread(keyword, email, password):
             ActionChains(driver).move_to_element(video_title).click().perform()
             time.sleep(5)
             # Chụp màn hình
-            driver.save_screenshot("screenshot_{}_{}.png".format(keyword, time.time()))
+            driver.save_screenshot("screenshots/screenshot_{}_{}.png".format(keyword, time.time()))
             print(f"Clicked video and took screenshot after {sleep_time} seconds")
         except Exception as e:
             print(f"Element not found or not clickable: {e}. Continuing...")
@@ -128,7 +128,7 @@ if __name__ == "__main__":
     parser.add_argument("--email", required=True, help="Email for YouTube login")
     parser.add_argument("--password", required=True, help="Password for YouTube login")
     args = parser.parse_args()
-
+    os.makedirs("screenshots", exist_ok=True)
     keywords = ["honguynvn04", "tindang", "abskwkws", "hieuvilai2007", "365ngynhem"]
     threads = []
     for keyword in keywords:
