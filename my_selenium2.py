@@ -97,10 +97,28 @@ def run_thread(keyword, email, password):
 
     # Keep running and take screenshots
     while True:
-        driver.save_screenshot(f"screenshots/screenshot_{keyword}_{int(time.time())}.png")
-        print(f"Screenshot taken for {keyword}")
-        time.sleep(300)  # 5 mins
-        random_mouse_move(driver)
+        # driver.save_screenshot(f"screenshots/screenshot_{keyword}_{int(time.time())}.png")
+        # print(f"Screenshot taken for {keyword}")
+        # time.sleep(300)  # 5 mins
+        # random_mouse_move(driver)
+        try:
+            # Random sleep từ 100 đến 300 giây
+            sleep_time = random.randint(100, 300)
+            time.sleep(sleep_time)
+            
+            random_mouse_move(driver)
+            
+            # Tìm và click video có chứa "TK" hoặc "TikTok"
+            xpath = "//span[@id='video-title' and (contains(text(), 'TK') or contains(text(), 'TikTok'))]"
+            video_title = driver.find_element(By.XPATH, xpath)
+            ActionChains(driver).move_to_element(video_title).click().perform()
+            time.sleep(5)
+            # Chụp màn hình
+            driver.save_screenshot("screenshot_{}_{}.png".format(keyword, time.time()))
+            print(f"Clicked video and took screenshot after {sleep_time} seconds")
+        except Exception as e:
+            print(f"Element not found or not clickable: {e}. Continuing...")
+            continue
 
     driver.quit()
 
