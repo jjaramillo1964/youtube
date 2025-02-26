@@ -103,7 +103,7 @@ def run_thread(keyword, email, password):
         # random_mouse_move(driver)
         try:
             # Random sleep từ 100 đến 300 giây
-            sleep_time = random.randint(100, 300)
+            sleep_time = random.randint(2000, 3000)
             time.sleep(sleep_time)
             
             random_mouse_move(driver)
