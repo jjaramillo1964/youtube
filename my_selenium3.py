@@ -45,8 +45,8 @@ def random_mouse_move(driver):
         time.sleep(random.uniform(0.5, 1.5))
     except WebDriverException as e:
         print(f"Mouse move error: {e}")
-        driver.execute_script("window.scrollBy(0, 250);")
-        time.sleep(1)
+        # driver.execute_script("window.scrollBy(0, 250);")
+        # time.sleep(1)
 
 def run_thread(keyword, email, password):
     driver = create_driver()
