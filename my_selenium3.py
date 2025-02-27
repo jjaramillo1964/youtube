@@ -43,7 +43,7 @@ def random_mouse_move(driver):
         y_offset = random.randint(-window_height // 2, window_height // 2)
         action.move_by_offset(x_offset, y_offset).perform()
         time.sleep(random.uniform(0.5, 1.5))
-    except WebDriverException as e:
+    except Exception as e:
         print(f"Mouse move error: {e}")
         # driver.execute_script("window.scrollBy(0, 250);")
         # time.sleep(1)
