@@ -54,8 +54,6 @@ def run_thread(keyword, email, password):
     try:
         driver.get("https://www.youtube.com/")
         time.sleep(2)
-
-        # Đăng nhập
         sign_in_button = driver.find_element(By.XPATH, '//*[@aria-label="Sign in"]')
         sign_in_button.click()
         
@@ -63,12 +61,11 @@ def run_thread(keyword, email, password):
         email_field.send_keys(email)
         email_field.send_keys(Keys.RETURN)
         
-        time.sleep(10)  # Chờ tải trang đăng nhập mật khẩu
+        time.sleep(10)
         
         password_field = driver.find_element(By.XPATH, '//*[@name="Passwd"]')
         password_field.send_keys(password)
         password_field.send_keys(Keys.RETURN)
-        
         time.sleep(5)
 
         # Truy cập playlist
@@ -90,11 +87,19 @@ def run_thread(keyword, email, password):
 
         while time.time() - start_time < run_time:
             try:
-                driver.find_element(By.XPATH, '//*[@aria-label="Sign in"]').click()
                 time.sleep(2)
-                driver.find_element(By.ID, "identifierId").send_keys(email, Keys.RETURN)
+                sign_in_button = driver.find_element(By.XPATH, '//*[@aria-label="Sign in"]')
+                sign_in_button.click()
+                
+                email_field = driver.find_element(By.XPATH, '//*[@id="identifierId"]')
+                email_field.send_keys(email)
+                email_field.send_keys(Keys.RETURN)
+                
                 time.sleep(10)
-                driver.find_element(By.NAME, "Passwd").send_keys(password, Keys.RETURN)
+                
+                password_field = driver.find_element(By.XPATH, '//*[@name="Passwd"]')
+                password_field.send_keys(password)
+                password_field.send_keys(Keys.RETURN)
                 time.sleep(5)
             except Exception as e:
                 print(f"Login error: {e}")
