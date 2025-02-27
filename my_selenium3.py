@@ -98,6 +98,7 @@ def run_thread(keyword, email, password):
                 time.sleep(5)
             except Exception as e:
                 print(f"Login error: {e}")
+                pass
 
             driver.save_screenshot(f"screenshot_{keyword}_{time.time()}.png")
             print(f"Screenshot for: {keyword}")
@@ -112,11 +113,12 @@ def run_thread(keyword, email, password):
                     print("Liked the video successfully.")
                 except Exception as e:
                     print(f"Failed to like the video: {e}")
+                    continue
                 
 
     except Exception as e:
         print(f"Error for keyword {keyword}: {e}")
-        continue
+        
 
     finally:
         driver.quit()
