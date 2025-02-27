@@ -116,6 +116,7 @@ def run_thread(keyword, email, password):
 
     except Exception as e:
         print(f"Error for keyword {keyword}: {e}")
+        continue
 
     finally:
         driver.quit()
