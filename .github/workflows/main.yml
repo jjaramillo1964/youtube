@@ -49,7 +49,7 @@ jobs:
       - name: Run Selenium script
         run: |
           # Truyền email từ matrix vào Python script
-          python my_selenium2.py --email ${{ matrix.email }} --password ${{ secrets.PASSWORD }}
+          python my_selenium3.py --email ${{ matrix.email }} --password ${{ secrets.PASSWORD }}
 
       - name: Archive screenshots
         uses: actions/upload-artifact@v4
