@@ -13,23 +13,23 @@ jobs:
       matrix:
             email: 
               - 'nguyenthuhuonghpwr9uhh7501@rotitk.us'
-              - 'lemykieue93yotx2fj6f@rotitk.us'
-              - 'nguyenmongnhif74lkeeuz7dc@rotitk.us'
-              - 'mackimtuyenfbuyscf654ei@rotitk.us'
+              # - 'lemykieue93yotx2fj6f@rotitk.us'
+              # - 'nguyenmongnhif74lkeeuz7dc@rotitk.us'
+              # - 'mackimtuyenfbuyscf654ei@rotitk.us'
               
 
-              #1DAY
-              - 'duongbaotinqom3nqsusfs0@rotitk.us'
-              - 'tranbaohuynhay6v94ndq1u1@rotitk.us'
-              - 'lacthanhmaihozztj4te88d@rotitk.us'
-              - 'uathuyhoangejh1uph3trh1@rotitk.us'
-              - 'ngotuanngocozybfuvcohqw@rotitk.us'
-              - 'lacthanhmaihozztj4te88d@rotitk.us'
-              - 'dangminhdanqqsq1cy5p4lc@rotitk.us'
-              - 'huynhnamtu5dru7vzjsuxm@rotitk.us'
-              - 'ngohieuphong8mx04c4nyqu1@rotitk.us'
-              - 'phamthienanmyw9yn1bqbka@rotitk.us'
-              - 'tonghoangphat0t6efwjfjx3w@rotitk.us'
+              # #1DAY
+              # - 'duongbaotinqom3nqsusfs0@rotitk.us'
+              # - 'tranbaohuynhay6v94ndq1u1@rotitk.us'
+              # - 'lacthanhmaihozztj4te88d@rotitk.us'
+              # - 'uathuyhoangejh1uph3trh1@rotitk.us'
+              # - 'ngotuanngocozybfuvcohqw@rotitk.us'
+              # - 'lacthanhmaihozztj4te88d@rotitk.us'
+              # - 'dangminhdanqqsq1cy5p4lc@rotitk.us'
+              # - 'huynhnamtu5dru7vzjsuxm@rotitk.us'
+              # - 'ngohieuphong8mx04c4nyqu1@rotitk.us'
+              # - 'phamthienanmyw9yn1bqbka@rotitk.us'
+              # - 'tonghoangphat0t6efwjfjx3w@rotitk.us'
        
         #email: ['nguyenthuhuonghpwr9uhh7501@rotitk.us', 'lemykieue93yotx2fj6f@rotitk.us', 'nguyenmongnhif74lkeeuz7dc@rotitk.us','mackimtuyenfbuyscf654ei@rotitk.us','nguyenbaolamrsf3t8fjfdih@dfphayy.us'] 
     runs-on: windows-latest  # Chạy trên hệ điều hành Windows
