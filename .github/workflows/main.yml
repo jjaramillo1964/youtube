@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     #- cron: '0 0,6,12,18 * * *'
-    #- cron: '0 */1 * * *'  # Chạy mỗi 3 giờ
+    - cron: '0 */1 * * *'  # Chạy mỗi 3 giờ
 
 jobs:
   youtube_bot:
