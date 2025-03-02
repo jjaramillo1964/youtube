@@ -3,8 +3,8 @@ name: My Selenium 2
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0,6,12,18 * * *'
-    #- cron: '0 */6 * * *'  # Chạy mỗi 3 giờ
+    #- cron: '0 0,6,12,18 * * *'
+    #- cron: '0 */1 * * *'  # Chạy mỗi 3 giờ
 
 jobs:
   youtube_bot:
@@ -13,7 +13,7 @@ jobs:
       matrix:
             email: 
               - 'nguyenthuhuonghpwr9uhh7501@rotitk.us'
-              # - 'lemykieue93yotx2fj6f@rotitk.us'
+              - 'lemykieue93yotx2fj6f@rotitk.us'
               # - 'nguyenmongnhif74lkeeuz7dc@rotitk.us'
               # - 'mackimtuyenfbuyscf654ei@rotitk.us'
               
